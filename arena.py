@@ -1,6 +1,7 @@
+from abc import ABC, abstractmethod
 import time
 
-class Fighter:
+class Fighter(ABC):
     def __init__(self):
         self.name = input("Введите имя бойца: ")
         self.hp = int(input("HP: "))
@@ -38,8 +39,9 @@ class Fighter:
     def is_alive(self):
         return self.hp > 0
 
+    @abstractmethod
     def unique_kick(self):
-        print("Боец делает обычный удар")
+        pass
 
 
 class Warrior(Fighter):
